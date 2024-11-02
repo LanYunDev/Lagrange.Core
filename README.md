@@ -15,6 +15,10 @@
 
 </div>
 
+# 与原仓库的差异
+
+* 新增 API : /get_rkey (修改来源: https://github.com/linyuchen/Lagrange.Core)
+
 ## Related Projects
 
 <table>

@@ -1,6 +1,15 @@
 name: Lagrange.OneBot Release
 
 on:
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - "Lagrange.Core/**"
+  #     - "Lagrange.OneBot/**"
+  #     - "Lagrange.Core.sln"
+  schedule:
+    - cron: '0 0 * * *'  # 每天晚上 12:00 UTC
   workflow_dispatch:
 
 env:
@@ -26,7 +35,7 @@ jobs:
       contents: write
 
     steps:
-      - run: echo -e "> ⚠️This is a nightly release.\r\n> ⚠️This is not the latest version." > note
+      - run: echo -e "每晚自动构建." > note
 
       - run: gh release create nightly -F ./note -p -t "Nightly Release" -R ${{ github.repository }}
 
