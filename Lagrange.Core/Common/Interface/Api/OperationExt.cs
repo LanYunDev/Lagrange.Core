@@ -139,8 +139,8 @@ public static class OperationExt
     public static Task<bool> GroupTransfer(this BotContext bot, uint groupUin, uint targetUin)
         => bot.ContextCollection.Business.OperationLogic.GroupTransfer(groupUin, targetUin);
 
-    public static Task<bool> DeleteFriend (this BotContext bot, uint friendUin, bool block)
-        =>bot.ContextCollection.Business.OperationLogic.DeleteFriend(friendUin, block);
+    public static Task<bool> DeleteFriend(this BotContext bot, uint friendUin, bool block)
+        => bot.ContextCollection.Business.OperationLogic.DeleteFriend(friendUin, block);
 
     public static Task<bool> RequestFriend(this BotContext bot, uint targetUin, string question = "", string message = "")
         => bot.ContextCollection.Business.OperationLogic.RequestFriend(targetUin, question, message);
@@ -207,6 +207,9 @@ public static class OperationExt
 
     public static Task<BotUserInfo?> FetchUserInfo(this BotContext bot, uint uin, bool refreshCache = false)
         => bot.ContextCollection.Business.OperationLogic.FetchUserInfo(uin, refreshCache);
+
+    public static Task<(int code, string? message, BotGroupInfo info)> FetchGroupInfo(this BotContext bot, ulong uin)
+        => bot.ContextCollection.Business.OperationLogic.FetchGroupInfo(uin);
 
     public static Task<List<string>?> FetchCustomFace(this BotContext bot)
         => bot.ContextCollection.Business.OperationLogic.FetchCustomFace();
@@ -302,7 +305,7 @@ public static class OperationExt
 
     public static Task<(int Retcode, string Message)> SetPinGroup(this BotContext bot, uint uin, bool isPin)
         => bot.ContextCollection.Business.OperationLogic.SetPinGroup(uin, isPin);
-    
+
     public static Task<string> FetchPrivateFSDownload(this BotContext bot, string fileId, string fileHash, uint userId)
         => bot.ContextCollection.Business.OperationLogic.FetchPrivateFSDownload(fileId, fileHash, userId);
 }
